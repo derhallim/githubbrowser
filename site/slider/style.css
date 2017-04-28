@@ -25,7 +25,7 @@
   position: absolute;
   padding-top: 10px;
   padding-left: 3%;
-  font-size: 24px;
+  font-size: 150%;
 }
 
 .slide .caption {
@@ -35,6 +35,11 @@
   width: 100%;
 }
 
+
+ .caption p{
+     font-size: 150%;
+ }
+ 
 .slide img {
   width: 100%;
 }
@@ -46,17 +51,16 @@
   transition:  1s;
   background-color: #1BA39C;
   color: black;
+  padding: 1%;
+  border-radius: 50%;
+  
 }
 
 .next {
   right: 20px;
-  padding: 10px;
-  border-radius: 50%;
 }
 
 .prev {
-  padding: 10px;
-  border-radius: 50%;
   left: 20px;
 }
 
@@ -107,4 +111,11 @@
     opacity: 1;
     transform: rotateX(360deg);
   }
+}
+
+@media (max-width: 600px){
+    .caption{
+        display: none;
+    }
+
 }
