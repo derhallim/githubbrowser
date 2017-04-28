@@ -7,8 +7,6 @@ let app = express();
 
 app.use(express.static(__dirname + '/site'));
 
-
-
 app.get('/github/:username', (req, res) => {
     let username = req.params.username;
     console.log(username);
@@ -18,7 +16,6 @@ app.get('/github/:username', (req, res) => {
         }).catch((e) => {
             res.status(400).send(e);
         });
-       
 })
 
 app.listen(port, () => {

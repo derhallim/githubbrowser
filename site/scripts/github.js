@@ -36,7 +36,6 @@ var drawUserInfo = (user) => {
     document.getElementById('user-url').setAttribute('href', user.html_url);
 }
 
-
 var drawRepos = (repos) => {
     let liArray = '';
     let counter = 0;
