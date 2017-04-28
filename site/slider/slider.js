@@ -1,17 +1,17 @@
-
 let index = 1; 
-
+let interval;
 let slides = document.getElementsByClassName('slide');
 let dots = document.getElementsByClassName('dot');
 
 let nextPage = (increment) => {
+  clearInterval(interval);
   index += increment;
   paginate(index); 
+  rotate();
 }
 
 let paginate = (pageIndex) => {
   index = pageIndex;
-  console.log(index);
   if(index > slides.length)
      index = 1;
   
@@ -31,3 +31,12 @@ for(let i = 0; i < dots.length; i++){
 }
 
 paginate(index);
+
+let rotate = () => {
+    
+interval = setInterval(() => {
+  paginate(++index);
+}, 5000)
+}
+
+rotate();
