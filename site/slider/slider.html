@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider - Mohamed Derhalli</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="slideshow">
+  <div class="slide">
+    <div class="top-text">
+      <span> Nice image  </span>
+    </div>
+    <div class="slide-img">
+      <img src="imgs/slider1.jpg">
+    </div>
+    <div class="caption">
+      <p>Image 1</p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="top-text">
+             Nice image 2
+    </div>
+    <div class="slide-img">
+      <img src="imgs/slider3.jpg">
+    </div>
+    <div class="caption">
+      <p>Image 2</p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="top-text">
+        <span> Nice image 3</span>
+    </div>
+    <div class="slide-img">
+      <img src="imgs/slider2.jpg">
+    </div>
+    <div class="caption">
+      <p>Image 2</p>
+    </div>
+  </div>
+ 
+  <div class="next" onclick="nextPage(1)">&gt</div>
+  <div class="prev" onclick="nextPage(-1)">&lt</div>
+
+
+  <div class="circles">
+    <span class="dot" onclick="paginate(1)"></span>
+    <span class="dot" onclick="paginate(2)"></span>
+    <span class="dot" onclick="paginate(3)"></span>
+  </div>
+
+</div>
+
+<script src="slider.js" type="text/javascript"></script>
+</body>
+</html>

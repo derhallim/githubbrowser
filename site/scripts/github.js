@@ -1,4 +1,5 @@
 let githubApp = window.githubApp || {};
+
 document.getElementById('txt-user-search').addEventListener('keyup', (e) => {
     if(e.keyCode === 13){
         githubApp.getUser();
@@ -7,25 +8,27 @@ document.getElementById('txt-user-search').addEventListener('keyup', (e) => {
 
 githubApp.getUser = function(){
     let username = document.getElementById('txt-user-search').value;
+  
     if(!username)
         return alert('please fill a username');
 
-        console.log(username);
         document.getElementsByClassName('loader')[0].classList.remove('hidden');
-        fetch(`/github/${username}`).then(res => res.json()).then((result) => {
-            console.log(result);
-            document.getElementsByClassName('result')[0].style.cssText = 'display: block;';
-            document.getElementsByClassName('loader')[0].classList.add('hidden');
-            document.getElementsByClassName('error')[0].style.cssText = 'display: none;';
-            
-            drawUserInfo(result[0]);
-            drawRepos(result[1]);
-            
-    } ).catch((e) => {
-            document.getElementsByClassName('result')[0].style.cssText = 'display: none;';
-            document.getElementsByClassName('error')[0].style.cssText = 'display: block;';
-        console.log('Error happened ' + e)
-    });
+        let originalResponse ; 
+        fetch(`/github/${username}?page=1&per_page=10`)
+            .then(res => originalResponse = res)
+            .then(res => res.json())
+            .then((result) => {
+                console.log(originalResponse.headers.get('Link'));
+                document.getElementsByClassName('result')[0].style.cssText = 'display: block;';
+                document.getElementsByClassName('loader')[0].classList.add('hidden');
+                document.getElementsByClassName('error')[0].style.cssText = 'display: none;';
+                drawUserInfo(result[0]);
+                drawRepos(result[1]);
+            }).catch((e) => {
+                document.getElementsByClassName('result')[0].style.cssText = 'display: none;';
+                document.getElementsByClassName('error')[0].style.cssText = 'display: block;';
+                console.log('Error happened ' + e)
+            });
 }
 
 var drawUserInfo = (user) => {
@@ -37,6 +40,7 @@ var drawUserInfo = (user) => {
 }
 
 var drawRepos = (repos) => {
+    
     let liArray = '';
     let counter = 0;
     let template = document.getElementById('repos-template').value;
@@ -48,7 +52,6 @@ var drawRepos = (repos) => {
        if(counter==2)
         counter =0;
 
-       console.log(element);
        
     }, this);
     document.getElementById('repos-ul').innerHTML =liArray;

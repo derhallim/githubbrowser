@@ -9,9 +9,11 @@ app.use(express.static(__dirname + '/site'));
 
 app.get('/github/:username', (req, res) => {
     let username = req.params.username;
-    console.log(username);
-
-    github.getUser(username).then((results) => {
+    let pageNumber = req.query.page;
+    let pageLength = req.query.per_page;    
+        
+    github.getUser(username, pageNumber, pageLength).then((results) => {
+            console.log(results.headers);
             res.send(results);
         }).catch((e) => {
             res.status(400).send(e);
