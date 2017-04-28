@@ -12,7 +12,7 @@ githubApp.getUser = function(){
 
         console.log(username);
         document.getElementsByClassName('loader')[0].classList.remove('hidden');
-        fetch(`http://localhost:8888/github/${username}`).then(res => res.json()).then((result) => {
+        fetch(`/github/${username}`).then(res => res.json()).then((result) => {
             console.log(result);
             document.getElementsByClassName('result')[0].style.cssText = 'display: block;';
             document.getElementsByClassName('loader')[0].classList.add('hidden');
@@ -24,7 +24,6 @@ githubApp.getUser = function(){
     } ).catch((e) => {
             document.getElementsByClassName('result')[0].style.cssText = 'display: none;';
             document.getElementsByClassName('error')[0].style.cssText = 'display: block;';
-        
         console.log('Error happened ' + e)
     });
 }
