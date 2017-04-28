@@ -104,6 +104,7 @@ body{
 
 .user-info{
     float: left;
+    width: 40%;
 }
 
 .repos-container{
