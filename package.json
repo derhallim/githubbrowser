@@ -4,7 +4,8 @@
   "description": "We will only evaluate the client side code and the criteria will be based mainly on:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
