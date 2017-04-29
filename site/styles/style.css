@@ -32,6 +32,8 @@ body{
     border-radius: 4px;
 }
 
+
+
 #txt-user-search{
     box-sizing: border-box;
     font-size: 19px;
@@ -75,6 +77,10 @@ body{
 #txt-user-search:hover, #txt-user-search:focus{
     border-color: #1BA39C;
     outline: none;
+}
+
+.progress{
+    text-align: center;
 }
 
 .loader{
