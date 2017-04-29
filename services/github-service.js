@@ -21,8 +21,8 @@ let getUser = (username, pageNumber, pageLength) => {
              },
      });
 
-     return repos;
-    //  return Promise.all([profileInfo, repos]);
+    // return repos;
+      return Promise.all([profileInfo, repos]);
 }
 
 module.exports.getUser = getUser;
